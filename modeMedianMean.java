@@ -4,16 +4,16 @@ import java.io.File;
 // main class
 class modeMedianMean {   
     // mean calculator
-    public static float Mean(List<Integer> arrayMean) {
+    public static float Mean(int arrayMean[]) {
         // define vars
         float mean;
         float total = 0;
         // adds up all the number in the file
-        for (int index = 0; index < arrayMean.size(); index++) {
-            total += arrayMean.get(index);
+        for (int index = 0; index < arrayMean.length; index++) {
+            total += arrayMean[index];
         }
         // Divide by the number of numbers
-        mean = total / arrayMean.size();
+        mean = total / arrayMean.length;
         return mean;
     }
 
@@ -79,10 +79,10 @@ class modeMedianMean {
         List<String> originalListString = new ArrayList<String>();
         File file = new File("./Unit1/Java/Unit1-06-Java/set3.txt");
         Scanner sc = new Scanner(file);
-        List<Integer> listInt = new ArrayList<Integer>();
-        List<Integer> sortedArray = new ArrayList<Integer>();
+
         // for the sorted array
         int numToLookFor = 0;
+
         // for my inificient code to sort
         int biggestInt = 0;
 
@@ -92,26 +92,33 @@ class modeMedianMean {
             originalListString.add(sc.nextLine());
         }
 
+        System.out.println(originalListString);
+
+        // List<Integer> listInt = new ArrayList<Integer>();
+        int arrayInt[] = new int [originalListString.size()];
+
+        List<Integer> sortedArray = new ArrayList<Integer>();
+
         // converts files list to a list of ints and checks for errors
         for (int index = 0; index < originalListString.size(); index++) {
             try {
                 int convertedInt = Integer.parseInt(originalListString.get(index));
-                listInt.add(convertedInt);
+                arrayInt[index] = convertedInt;
             } catch (NumberFormatException e) {
                 System.out.println("Something in the file was not an integer");
             }
         }
 
         // these two sort the list
-        for (int index = 0; index < listInt.size(); index++) {
-            if (listInt.get(index) > biggestInt) {
-                biggestInt = listInt.get(index);
+        for (int index = 0; index < arrayInt.length; index++) {
+            if (arrayInt[index] > biggestInt) {
+                biggestInt = arrayInt[index];
             }
         }
 
         while (numToLookFor <= biggestInt) {
-            for (int index = 0; index < listInt.size(); index++) {
-                if (numToLookFor == listInt.get(index)) {
+            for (int index = 0; index < arrayInt.length; index++) {
+                if (numToLookFor == arrayInt[index]) {
                     sortedArray.add(numToLookFor);
                 }
             }
@@ -119,7 +126,7 @@ class modeMedianMean {
         }
 
         // calls the functions to get the three
-        float mean = Mean(listInt);
+        float mean = Mean(arrayInt);
         List<Integer> mode = Mode(sortedArray);
         float median = Median(sortedArray);
 
