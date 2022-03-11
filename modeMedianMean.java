@@ -1,10 +1,11 @@
+
 /**
 * The modeMedianMean calculator finds the mode median and mean
 * of a given txt file filled with numbers
 *
-* @author  Mr. Coxall
-* @version 1.0
-* @since   2021-11-16
+* @author  Liam Csiffary
+* @version 1.1
+* @since   2022-03-11
 */
 
 import java.util.*;
