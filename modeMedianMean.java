@@ -4,7 +4,7 @@
 * of a given txt file filled with numbers
 *
 * @author  Liam Csiffary
-* @version 1.11
+* @version 1.12
 * @since   2022-03-11
 */
 
@@ -98,21 +98,16 @@ class modeMedianMean {
 
     // seems to need the exception or the Scanner(file) complains
     public static void main(String[] args) throws Exception {
-
         // defining vars
         List<String> originalListString = new ArrayList<String>();
-
+        String txtFileNum = "";
         // gets the file you want to run
         Scanner myObj = new Scanner(System.in);
-        while (true) {
+        while (txtFileNum != "1" && txtFileNum != "2" && txtFileNum != "3") {
             System.out.println("Which txt file: 1, 2, or 3: ");
-            String txtFileNum = myObj.nextLine();
-            if (txtFileNum == "1" || txtFileNum == "2" || txtFileNum == "3") {
-                // for some reason it doesn't work any other way
-                File file = new File("C:/Users/s299776/ICS4U/Unit1/Java/Unit1-06-Java/set" + txtFileNum + ".txt");
-                break;
-            }
+            txtFileNum = myObj.nextLine();
         }
+        File file = new File("C:/Users/s299776/ICS4U/Unit1/Java/Unit1-06-Java/set" + txtFileNum + ".txt");
             
         System.out.println(file);
         Scanner sc = new Scanner(file);
