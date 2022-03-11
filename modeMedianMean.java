@@ -4,7 +4,7 @@
 * of a given txt file filled with numbers
 *
 * @author  Liam Csiffary
-* @version 1.1
+* @version 1.11
 * @since   2022-03-11
 */
 
@@ -101,7 +101,20 @@ class modeMedianMean {
 
         // defining vars
         List<String> originalListString = new ArrayList<String>();
-        File file = new File("./Unit1/Java/Unit1-06-Java/set1.txt");
+
+        // gets the file you want to run
+        Scanner myObj = new Scanner(System.in);
+        while (true) {
+            System.out.println("Which txt file: 1, 2, or 3: ");
+            String txtFileNum = myObj.nextLine();
+            if (txtFileNum == "1" || txtFileNum == "2" || txtFileNum == "3") {
+                // for some reason it doesn't work any other way
+                File file = new File("C:/Users/s299776/ICS4U/Unit1/Java/Unit1-06-Java/set" + txtFileNum + ".txt");
+                break;
+            }
+        }
+            
+        System.out.println(file);
         Scanner sc = new Scanner(file);
 
         // for my inificient code to sort
